@@ -73,14 +73,14 @@ public class AMFPatcher {
 	}
 	public static void main(String[] args) throws Exception {
 		
-		String fname = "c:/Users/i024148/Mobile Docs/My Documents/3d print/CO2 Case v1/CO2Box OLED 5 win gray.amf.xml";
+		String fname = args[0];
 		DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		Document doc = db.parse(fname);
-		System.out.println("find vladi: " + getVolume("vladi", doc));
-		System.out.println("find CO2Box OLED 5 walls: " + getVolume("CO2Box OLED 5 walls", doc));
-		stripMetadataFromVolume(getVolume("CO2Box OLED 5 win gra", doc));
+//		System.out.println("find vladi: " + getVolume("vladi", doc));
+//		System.out.println("find CO2Box OLED 5 walls: " + getVolume("CO2Box OLED 5 walls", doc));
+//		stripMetadataFromVolume(getVolume("CO2Box OLED 5 win gra", doc));
 		
-		JsonReader jr = Json.createReader(new FileReader("c:/Users/i024148/Mobile Docs/My Documents/3d print/CO2 Case v1/xccc.json"));
+		JsonReader jr = Json.createReader(new FileReader(args[1]));
 		JsonStructure jsonst = jr.read();
 		if (jsonst instanceof JsonArray) {
 			for (JsonValue el : (JsonArray)jsonst) {
